@@ -1,0 +1,39 @@
+PARA SEBASTIAN, MI BEBITO — DE YADIRA KELLY
+
+1. Extrae el ZIP. Guarda tus seis fotos o videos dentro de recuerdos/.
+2. Abre HotWheels_Bebito.html en tu editor de código.
+3. Al principio, busca: TUS 6 FOTOS O VIDEOS.
+4. Cambia los seis valores src por el nombre real de cada archivo.
+   Usa type: "image" para fotos y type: "video" para videos.
+   El orden corresponde a las flores 01 a 06.
+
+Ejemplo de foto:  { "type": "image", "src": "recuerdos/mi-foto.jpg" }
+Ejemplo de video: { "type": "video", "src": "recuerdos/mi-video.mp4" }
+
+La configuración inicial alterna 01.jpg, 02.mp4, 03.jpg, 04.mp4,
+05.jpg y 06.mp4. Puedes cambiar el tipo y el nombre de cualquiera.
+Mantén las comas entre los elementos; el último no lleva coma.
+No incluye fotos ni videos personales: coloca los tuyos antes de compartir.
+
+TU PROPIO AUDIO
+Guarda tu canción en recuerdos/musica.mp3.
+Para otro nombre o formato, cambia music.src al principio del HTML:
+"music": { "src": "recuerdos/mi-cancion.mp3", "volume": 0.35 }
+El volumen va de 0 a 1. Se recomienda MP3 para mayor compatibilidad.
+El audio empieza al primer toque y se repite. El botón Música permite
+pausarlo y continuar desde el mismo punto. Incluye tu audio al compartir.
+No se incluye una canción de muestra: debes añadir tu archivo.
+
+Comparte la carpeta completa comprimida (HTML + recuerdos), o sube ambos
+a tu alojamiento web manteniendo las mismas rutas. El HTML por sí solo
+no contiene los archivos de recuerdos.
+
+Fotos: JPG, PNG, WebP. Videos: MP4 (recomendado H.264) o WebM.
+Cada video se reproduce completo en bucle; se detiene al cerrar el recuerdo.
+El archivo funciona sin internet. Ábrelo en un navegador; algunos visores de
+mensajería o de archivos del celular no ejecutan páginas HTML interactivas.
+
+Diseño personal inspirado en la referencia de AlexDev:
+https://vt.tiktok.com/ZSbjgE3Wa/
+Flor, carrito e interpretación del logo: imágenes generadas con image_gen.
+Hot Wheels es una marca de Mattel. Regalo personal de fan.
