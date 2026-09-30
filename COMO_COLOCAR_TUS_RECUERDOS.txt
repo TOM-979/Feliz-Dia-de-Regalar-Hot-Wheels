@@ -1,39 +1,50 @@
-PARA SEBASTIAN, MI BEBITO — DE YADIRA KELLY
+PARA SEBASTIAN, MI BEBITO - DE YADIRA KELLY
 
-1. Extrae el ZIP. Guarda tus seis fotos o videos dentro de recuerdos/.
-2. Abre HotWheels_Bebito.html en tu editor de código.
-3. Al principio, busca: TUS 6 FOTOS O VIDEOS.
-4. Cambia los seis valores src por el nombre real de cada archivo.
-   Usa type: "image" para fotos y type: "video" para videos.
-   El orden corresponde a las flores 01 a 06.
+ABRIR LA PAGINA
+Abre index.html en un navegador. HotWheels_Bebito.html tambien funciona:
+te lleva a index.html para conservar el enlace anterior.
 
-Ejemplo de foto:  { "type": "image", "src": "recuerdos/mi-foto.jpg" }
-Ejemplo de video: { "type": "video", "src": "recuerdos/mi-video.mp4" }
+ESTRUCTURA
+index.html           Pagina principal.
+css/estilos.css       Diseno, colores y animaciones.
+js/recuerdos.js       Rutas de las seis fotos/videos y de la cancion.
+js/app.js             Flores, recuerdos y carta.
+js/musica.js          Reproduccion y botones de musica.
+assets/img/          Carrito, logo y girasol (una copia de cada imagen).
+recuerdos/fotos/      Fotos 01.jpg, 03.jpg y 05.jpg.
+recuerdos/videos/     Videos 02.mp4, 04.mp4 y 06.mp4.
+recuerdos/audio/      inolvidable.mp3.
 
-La configuración inicial alterna 01.jpg, 02.mp4, 03.jpg, 04.mp4,
-05.jpg y 06.mp4. Puedes cambiar el tipo y el nombre de cualquiera.
-Mantén las comas entre los elementos; el último no lleva coma.
-No incluye fotos ni videos personales: coloca los tuyos antes de compartir.
+CAMBIAR RECUERDOS O MUSICA
+Edita js/recuerdos.js. Las rutas parten de index.html, no de la carpeta js.
+Usa "type": "image" para fotos y "type": "video" para videos.
+El orden de media corresponde a las flores 01 a 06.
+Puedes reemplazar un archivo conservando su nombre y su formato.
+Para otro nombre, actualiza tambien su ruta en js/recuerdos.js.
+Conserva las comillas y las comas de la configuracion.
 
-TU PROPIO AUDIO
-Guarda tu canción en recuerdos/musica.mp3.
-Para otro nombre o formato, cambia music.src al principio del HTML:
-"music": { "src": "recuerdos/mi-cancion.mp3", "volume": 0.35 }
-El volumen va de 0 a 1. Se recomienda MP3 para mayor compatibilidad.
-El audio empieza al primer toque y se repite. El botón Música permite
-pausarlo y continuar desde el mismo punto. Incluye tu audio al compartir.
-No se incluye una canción de muestra: debes añadir tu archivo.
+La musica empieza con el primer toque y se repite. El boton Musica
+permite pausarla o reanudarla. Su volumen esta en music.volume (0 a 1).
+Los videos se reproducen en silencio y la musica conserva su volumen.
 
-Comparte la carpeta completa comprimida (HTML + recuerdos), o sube ambos
-a tu alojamiento web manteniendo las mismas rutas. El HTML por sí solo
-no contiene los archivos de recuerdos.
+VOLVER A SUBIR
+1. Sube index.html, HotWheels_Bebito.html y las carpetas css, js, assets
+   y recuerdos, conservando su estructura.
+2. index.html debe quedar directamente en la carpeta publicada.
+3. Si reemplazas un repositorio existente, incluye los archivos nuevos,
+   las modificaciones y las eliminaciones de las antiguas rutas.
+4. Abre la direccion publicada por tu alojamiento. La vista de archivos
+   del repositorio no es la pagina web.
+5. Recarga con Ctrl+F5 si el navegador muestra una version anterior.
 
-Fotos: JPG, PNG, WebP. Videos: MP4 (recomendado H.264) o WebM.
-Cada video se reproduce completo en bucle; se detiene al cerrar el recuerdo.
-El archivo funciona sin internet. Ábrelo en un navegador; algunos visores de
-mensajería o de archivos del celular no ejecutan páginas HTML interactivas.
+No necesita npm, instalacion de dependencias ni un paso de compilacion.
+Incluye todas las carpetas al compartir: index.html depende de ellas.
 
-Diseño personal inspirado en la referencia de AlexDev:
+Se conservaron las imagenes, fotos, videos y cancion sin recomprimirlos.
+La reduccion proviene de guardar una sola copia de las imagenes que
+antes estaban repetidas dentro del HTML.
+
+Diseno personal inspirado en la referencia de AlexDev:
 https://vt.tiktok.com/ZSbjgE3Wa/
-Flor, carrito e interpretación del logo: imágenes generadas con image_gen.
+Flor, carrito e interpretacion del logo: imagenes generadas con image_gen.
 Hot Wheels es una marca de Mattel. Regalo personal de fan.

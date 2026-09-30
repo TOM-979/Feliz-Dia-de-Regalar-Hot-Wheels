@@ -1,1 +1,4 @@
-Coloca aquí tus 6 fotos o videos. Configura sus nombres al principio de HotWheels_Bebito.html, en TUS 6 FOTOS O VIDEOS.
+Fotos: fotos/
+Videos: videos/
+Musica: audio/
+Edita sus rutas y el orden de las flores en ../js/recuerdos.js.

@@ -1,0 +1,16 @@
+(()=>{'use strict';
+const $=id=>document.getElementById(id),data=window.GIFT_DATA,media=data.media;
+const flowers=[...document.querySelectorAll('.flower')],dots=[...document.querySelectorAll('.progress i')],memory=$('memory'),letter=$('letter');
+let active=0;const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+for(let i=0;i<65;i++){const s=document.createElement('i');s.className='star';s.style.cssText=`left:${(i*37.13)%100}%;top:${(i*19.73)%100}%;--speed:${2+i%5}s;animation-delay:-${i%9}s`;$('sky').append(s)}
+function start(){document.body.classList.remove('is-waiting');$('welcome').classList.add('out');setTimeout(()=>{$('welcome').hidden=true},750)}
+$('open-gift').onclick=start;
+function burst(el){if(reduced)return;const r=el.getBoundingClientRect();for(let i=0;i<9;i++){const p=document.createElement('span');p.className='petal-spark';p.textContent=i%3?'✦':'♡';p.style.cssText=`left:${r.left+r.width/2}px;top:${r.top+r.height/2}px;--dx:${Math.cos(i*2.4)*100}px;--dy:${Math.sin(i*2.4)*100-30}px`;document.body.append(p);setTimeout(()=>p.remove(),1300)}}
+function stopMedia(){const v=$('media-stage').querySelector('video');if(v){v.pause();v.removeAttribute('src');v.load()}$('media-stage').replaceChildren()}
+function showMemory(index){active=(index+6)%6;stopMedia();const m=media[active];$('memory-title').textContent=`NUESTRO RECUERDO · ${String(active+1).padStart(2,'0')} / 06`;
+if(m && m.src){const el=document.createElement(m.type==='video'?'video':'img');el.src=m.src;if(m.type==='video'){el.controls=true;el.muted=true;el.defaultMuted=true;el.volume=0;el.addEventListener('volumechange',()=>{if(!el.muted)el.muted=true});el.playsInline=true;el.loop=true;el.preload='metadata';el.setAttribute('aria-label',`Video del recuerdo ${active+1}`)}else el.alt=`Nuestro recuerdo ${active+1}`;el.onerror=()=>{const notice=document.createElement('p');notice.className='empty';notice.textContent='Este recuerdo todavía no está disponible. ♡';$('media-stage').replaceChildren(notice)};$('media-stage').append(el);flowers[active].classList.add('seen');dots[active].classList.add('seen');if(!memory.open)memory.showModal();if(m.type==='video')el.play().catch(()=>{});
+}else{const empty=document.createElement('p');empty.className='empty';empty.textContent='Este recuerdo todavía no está disponible. ♡';$('media-stage').append(empty);if(!memory.open)memory.showModal()}}
+flowers.forEach((b,i)=>b.onclick=()=>{burst(b);showMemory(i)});$('next').onclick=()=>showMemory(active+1);$('previous').onclick=()=>showMemory(active-1);$('close-memory').onclick=()=>memory.close();memory.addEventListener('close',stopMedia);memory.addEventListener('keydown',e=>{if(e.target.tagName==='VIDEO')return;if(e.key==='ArrowRight')showMemory(active+1);if(e.key==='ArrowLeft')showMemory(active-1)});
+$('read-letter').onclick=()=>letter.showModal();$('close-letter').onclick=()=>letter.close();[memory,letter].forEach(d=>d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close()}}));
+$('replay').onclick=()=>{document.querySelectorAll('.bloom,.stems path').forEach(el=>{el.style.animation='none';void el.getBoundingClientRect().width;el.style.animation=''});burst($('replay'))};
+})();
